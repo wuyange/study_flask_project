@@ -1,7 +1,7 @@
 
 
 class BaseConfig:
-    SECRET_KEY = "your secret key"
+    SECRET_KEY = "123456"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 

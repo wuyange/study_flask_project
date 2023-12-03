@@ -13,7 +13,7 @@
   <h1 class="page-title">注册</h1>
   <div class="sign-box">
     <form action="{{ url_for('user.register') }}" method="post" id="register-form">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
       <div class="form-group">
         <div class="input-group">
           <input type="text" class="form-control" name="email" placeholder="邮箱">

@@ -1,7 +1,8 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+from app.forms.user import UserForms
 
 user = Blueprint("user", __name__, url_prefix="/user")
 
-@user.route('/user')
-def test():
-    return 'user'
+@user.route('/register')
+def register():
+    return render_template("front/register.html", )
