@@ -7,7 +7,7 @@ class BaseConfig:
 
 
 class DevelopmentConfig(BaseConfig):
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:123456@10.182.79.37:3306/flask?charset=utf8mb4"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234567890..asd@127.0.0.1:3306/flask?charset=utf8mb4"
     DEBUG = True
 
 
