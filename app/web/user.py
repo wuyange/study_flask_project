@@ -5,4 +5,8 @@ user = Blueprint("user", __name__, url_prefix="/user")
 
 @user.route('/register')
 def register():
-    return render_template("front/register.html", )
+    return render_template("my/register.html", )
+
+@user.route('/login')
+def login():
+    return render_template("my/base.html", )

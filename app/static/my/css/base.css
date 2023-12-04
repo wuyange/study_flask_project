@@ -1,0 +1,74 @@
+
+
+.left {
+    float: left;
+    display: inline-block;
+}
+
+.right {
+    float: right;
+    display: inline-block;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/*设置导航*/
+.navbar {
+    background-color: #f8f9fa;
+    padding: 10px;
+    height: 60px;
+    font-size: 36px;
+}
+.navbar a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar input {
+    margin-right: 10px;
+    line-height: 40px;
+    width: 300px;
+    vertical-align: middle;
+    border-radius: 15px;
+}
+
+.navbar div div{
+    margin: 0 20px;
+}
+
+/*    </style>*/
+/*</head>*/
+/*<body>*/
+/*    <div class="navbar">*/
+/*        <div>*/
+/*            <a href="#">Python 论坛</a>*/
+/*            <a href="#">首页</a>*/
+/*        </div>*/
+/*        <div>*/
+/*            <input type="text" placeholder="搜索">*/
+/*            <a href="#">登录</a>*/
+/*            <a href="#">注册</a>*/
+/*        </div>*/
+/*    </div>*/
+/*    <div class="register-form">*/
+/*        <input type="email" placeholder="邮箱">*/
+/*        <input type="text" placeholder="验证码">*/
+/*        <input type="text" placeholder="用户名">*/
+/*        <input type="password" placeholder="密码">*/
+/*        <input type="password" placeholder="确认密码">*/
+/*        <button onclick="register()">注册</button>*/
+/*    </div>*/
+/*    <script>*/
+/*        function register() {*/
+/*            // 这里可以添加注册的逻辑*/
+/*            alert('注册');*/
+/*        }*/
+/*    </script>*/
+/*</body>*/
+/*</html>*/
