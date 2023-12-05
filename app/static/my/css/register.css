@@ -1,0 +1,75 @@
+div.content {
+    margin: 80px auto;
+    width: 50%;
+    height: 500px;
+    background-color: #ffdf7e;
+    border-radius: 10px;
+    padding: 40px 0px;
+    box-sizing: border-box;
+}
+
+div.content form {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+div.content h1 {
+    font-size: 48px;
+}
+
+div.content form div {
+    height: 50px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+div.content form div span{
+    width: 100px;
+    display: inline-block;
+    float: left;
+    text-align: right;
+    margin-right: 30px;
+    font-size: 24px;
+}
+
+div.content form div input{
+    width: 450px;
+    height: 32px;
+    vertical-align: middle;
+    display: inline-block;
+    float: left;
+}
+
+div.content form div:first-of-type input{
+    width: 320px;
+    display: inline-block;
+}
+
+
+div.content input::-webkit-input-placeholder {
+    /* placeholder字体大小 */
+    font-size: 20px;
+}
+
+div.content form div button{
+    height: 38px;
+    width: 120px;
+    font-size: 18px;
+}
+
+div.content form div:first-of-type button{
+    width: 120px;
+    height: 38px;
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/*div.content form div:last-of-type{*/
+/*    display: flex;*/
+/*}*/
+
+div.content form div:last-of-type button{
+    margin-left: 80px;
+}

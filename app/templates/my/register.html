@@ -1,7 +1,10 @@
 {% extends "my/base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='my/css/register.css') }}">
+{% endblock %}
 
 {% block content %}
-    <div>
+    <div class="content">
         <form class="register" action="" method="post">
             <h1>注册</h1>
             {% if form %}
@@ -27,6 +30,10 @@
             <div>
                 <span>确认密码</span>
                 <input type="email" placeholder="请输入密码">
+            </div>
+            <div>
+                <button>返回登录</button>
+                <button>立即注册</button>
             </div>
         </form>
     </div>
