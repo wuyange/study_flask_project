@@ -4,6 +4,13 @@ class BaseConfig:
     SECRET_KEY = "123456"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # 邮箱配置
+    MAIL_SERVER = "smtp.qq.com"
+    MAIL_USE_SSL = True
+    MAIL_PORT = 465
+    MAIL_USERNAME = "2639773860@qq.com"
+    MAIL_PASSWORD = "aqkxanorwfwvdhhh"
+    MAIL_DEFAULT_SENDER = "2639773860@qq.com"
 
 
 class DevelopmentConfig(BaseConfig):
