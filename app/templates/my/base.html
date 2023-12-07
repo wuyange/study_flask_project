@@ -25,4 +25,8 @@
     </nav>
     {% block content %}{% endblock %}
 </body>
+<footer>
+    <script src="{{ url_for('static', filename='my/js/jquery.js') }}"></script>
+    {% block footer %}{% endblock %}
+</footer>
 </html>

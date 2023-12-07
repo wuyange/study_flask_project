@@ -12,30 +12,34 @@
             {% endif %}
             <div>
                 <span>邮箱</span>
-                <input type="email" placeholder="请输入邮箱">
-                <button>发送验证码</button>
+                <input type="email" name="email" placeholder="请输入邮箱">
+                <button id="send_code" type="button">发送验证码</button>
             </div>
             <div>
                 <span>验证码</span>
-                <input type="email" placeholder="请输入验证码">
+                <input type="email" name="code" placeholder="请输入验证码">
             </div>
             <div>
                 <span>用户名</span>
-                <input type="email" placeholder="请输入用户名">
+                <input type="email" name="user_name" placeholder="请输入用户名">
             </div>
             <div>
                 <span>密码</span>
-                <input type="email" placeholder="请输入密码">
+                <input type="email" name="password" placeholder="请输入密码">
             </div>
             <div>
                 <span>确认密码</span>
-                <input type="email" placeholder="请输入密码">
+                <input type="email" name="password_confirm" placeholder="请输入密码">
             </div>
             <div>
-                <button>返回登录</button>
-                <button>立即注册</button>
+                <button type="button">返回登录</button>
+                <button type="button">立即注册</button>
             </div>
         </form>
     </div>
 
 {% endblock %}
+
+{% block footer %}
+    <script src="{{ url_for('static', filename='my/js/register.js') }}"></script>
+{% endblock %} }

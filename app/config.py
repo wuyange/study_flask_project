@@ -12,6 +12,11 @@ class BaseConfig:
     MAIL_PASSWORD = "aqkxanorwfwvdhhh"
     MAIL_DEFAULT_SENDER = "2639773860@qq.com"
 
+    # 缓存配置
+    CACHE_TYPE = "RedisCache"
+    CACHE_REDIS_HOST = "127.0.0.1"
+    CACHE_REDIS_PORT = 6379
+
 
 class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234567890..asd@127.0.0.1:3306/flask?charset=utf8mb4"
