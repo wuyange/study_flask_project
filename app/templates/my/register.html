@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="content">
-        <form class="register" action="" method="post">
+        <form class="register" action="{{ url_for('user.register') }}" method="post">
             <h1>注册</h1>
             {% if form %}
                 {{ form.csrf.token() }}
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <button type="button">返回登录</button>
-                <button type="button">立即注册</button>
+                <button type="submit">立即注册</button>
             </div>
         </form>
     </div>

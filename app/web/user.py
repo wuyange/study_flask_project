@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, make_response, request
-from app.forms.user import UserForms
+from app.forms.user import UserRegisterForms
 from app.utils import mail, redis
 
 user = Blueprint("user", __name__, url_prefix="/user")
