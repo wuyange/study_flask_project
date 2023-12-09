@@ -14,7 +14,7 @@ class UserRegisterForms(BaseForm):
                                                      Length(min=6, max=20, message='密码长度为6-20'),
                                                      Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,20}$')])
     password_confirm = PasswordField('password_confirm', validators=[EqualTo(password, message='两次输入密码不一致')])
-    
+    register = SubmitField('register')
 
 
 class UserLoginForms(BaseForm):
