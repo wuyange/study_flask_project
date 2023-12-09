@@ -14,26 +14,43 @@
                 <span>邮箱</span>
                 <input type="email" name="email" placeholder="请输入邮箱">
                 <button id="send_code" type="button">发送验证码</button>
+                {% if form.errors.email %}
+                    <div class="error">{{ form.errors.email[0] }}</div>
+                {% endif %}
             </div>
             <div>
                 <span>验证码</span>
                 <input type="text" name="code" placeholder="请输入验证码">
+                {% if form.errors.code %}
+                    <div class="error">{{ form.errors.code[0] }}</div>
+                {% endif %}
             </div>
             <div>
                 <span>用户名</span>
                 <input type="text" name="user_name" placeholder="请输入用户名">
+                {% if form.errors.user_name %}
+                    <div class="error">{{ form.errors.user_name[0] }}</div>
+                {% endif %}
             </div>
             <div>
                 <span>密码</span>
                 <input type="password" name="password" placeholder="请输入密码">
+                {% if form.errors.password %}
+                    <div class="error">{{ form.errors.password[0] }}</div>
+                {% endif %}
             </div>
             <div>
                 <span>确认密码</span>
                 <input type="password" name="password_confirm" placeholder="请输入密码">
+                {% if form.errors.password_confirm %}
+                    <div class="error">{{ form.errors.password_confirm[0] }}</div>
+                {% endif %}
             </div>
             <div>
-                <button type="button">返回登录</button>
-                <button type="submit">立即注册</button>
+                <a href="{{ url_for('user.login') }}">
+                    <button type="button">返回登录</button>
+                </a>
+                <button type="submit" name="register">立即注册</button>
             </div>
         </form>
     </div>

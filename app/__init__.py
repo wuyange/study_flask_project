@@ -7,7 +7,7 @@ from .cli import register_cli
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(config.DevelopmentConfig)
+    app.config.from_object(config.TestingConfig)
 
     # 注册蓝图
     register_blueprint(app)

@@ -67,7 +67,9 @@ class UserModel(db.Model):
 
     @password.setter
     def password(self, password:str):
+        print(password)
         self._password = generate_password_hash(password)
+        print(self._password)
 
     def check_password(self, password:str):
         return check_password_hash(self._password, password)
