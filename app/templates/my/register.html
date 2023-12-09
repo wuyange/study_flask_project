@@ -8,7 +8,7 @@
         <form class="register" action="{{ url_for('user.register') }}" method="post">
             <h1>注册</h1>
             {% if form %}
-                {{ form.csrf.token() }}
+                {{ form.hidden_tag() }}
             {% endif %}
             <div>
                 <span>邮箱</span>
@@ -17,19 +17,19 @@
             </div>
             <div>
                 <span>验证码</span>
-                <input type="email" name="code" placeholder="请输入验证码">
+                <input type="text" name="code" placeholder="请输入验证码">
             </div>
             <div>
                 <span>用户名</span>
-                <input type="email" name="user_name" placeholder="请输入用户名">
+                <input type="text" name="user_name" placeholder="请输入用户名">
             </div>
             <div>
                 <span>密码</span>
-                <input type="email" name="password" placeholder="请输入密码">
+                <input type="password" name="password" placeholder="请输入密码">
             </div>
             <div>
                 <span>确认密码</span>
-                <input type="email" name="password_confirm" placeholder="请输入密码">
+                <input type="password" name="password_confirm" placeholder="请输入密码">
             </div>
             <div>
                 <button type="button">返回登录</button>
@@ -42,4 +42,4 @@
 
 {% block footer %}
     <script src="{{ url_for('static', filename='my/js/register.js') }}"></script>
-{% endblock %} }
+{% endblock %} 
