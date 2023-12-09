@@ -4,9 +4,16 @@ from app.utils import mail, redis
 
 user = Blueprint("user", __name__, url_prefix="/user")
 
-@user.route('/register')
+@user.route('/register', methods=['get', 'post'])
 def register():
-    return render_template("my/register.html", )
+    form = UserRegisterForms(request.form)
+    print(form.data)
+    print(request.method)
+    print(form.error_message)
+    if form.validate_on_submit():
+        return 'xxx'
+    print(form.error_message)
+    return render_template("my/register.html", form=form)
 
 @user.route('/send_verification_code', methods=['post'])
 def send_verification_code():
