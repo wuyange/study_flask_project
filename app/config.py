@@ -1,4 +1,4 @@
-
+from datetime import timedelta
 
 class BaseConfig:
     SECRET_KEY = "123456"
@@ -11,6 +11,10 @@ class BaseConfig:
     MAIL_USERNAME = "2639773860@qq.com"
     MAIL_PASSWORD = "aqkxanorwfwvdhhh"
     MAIL_DEFAULT_SENDER = "2639773860@qq.com"
+
+    # 设置登录超时时间
+    from datetime import timedelta
+    PERMANENT_SESSION_LIFETIME = timedelta(days=7)
 
 
 class DevelopmentConfig(BaseConfig):

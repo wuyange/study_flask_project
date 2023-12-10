@@ -31,9 +31,9 @@ def send_verification_code():
 def login():
     form = UserLoginForms()
     if form.validate_on_submit():
-        print('xxxxxxx')
         session['user_id'] = UserModel.query.filter_by(username=form.username.data).first().uid
         if form.remember.data:
             session.permanent = True
         return redirect(url_for('front.index'))
+    print(session.get('user_id', None))
     return render_template("my/login.html", form=form)

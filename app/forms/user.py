@@ -50,7 +50,7 @@ class UserLoginForms(BaseForm):
             return False
 
         username = UserModel.query.filter_by(username=self.username.data).first()
-        if username and username.check_password(self.password.data):
+        if username and not username.check_password(self.password.data):
             self.password.errors.append('用户名或者密码错误')
             return False
 
