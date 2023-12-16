@@ -1,4 +1,5 @@
 from .models.user import PermissionModel, RoleModel, PermissionEnum, UserModel
+from .models.post import *
 import click
 from .exts import db
 
@@ -35,9 +36,18 @@ def create_administrator(username, password, email):
         user = UserModel(username=username, password=password, email=email)
         user.role = RoleModel.query.filter(RoleModel.name=='管理员').first()
         db.session.add(user)
+        
+def create_board():
+    with db.auto_commit():
+        board_names = ['Python语法', 'web开发', '测试开发', '运维开发']
+        for board_name in board_names:
+            board = BoardModel(name=board_name)
+            db.session.add(board)
+    click.echo("板块添加成功！")
 
 def register_cli(app):
 
     app.cli.command("create-role")(create_role)
     app.cli.command("create-permission")(create_permission)
     app.cli.command("create-administrator")(create_administrator)
+    app.cli.command("create-board")(create_board)
