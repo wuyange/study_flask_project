@@ -1,0 +1,51 @@
+.content form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.content .label {
+    font-size: 24px;
+}
+
+.content input {
+    padding: 0;
+    border: 2px inset black;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: 36px;
+    border-radius: 12px;
+    margin: 3px 0;
+}
+
+.content select {
+    box-sizing: border-box;
+    border: 2px inset black;
+    width: 100%;
+    height: 36px;
+    border-radius: 12px;
+    margin: 3px 0;
+    font-size: 24px;
+}
+
+.content #editor—wrapper {
+    margin: 3px 0;
+    border: 3px inset black;
+}
+
+.content #toolbar-container{
+    border-bottom: 2px inset #ccc; 
+}
+
+.content #editor-container{
+    height: 480px; 
+}
+
+.content button[name="submit"]{
+    width: 120px;
+    height: 38px;
+    background-color: rgb(253,126,20);
+    font-size: 18px;
+    font-weight: bold;
+}
+

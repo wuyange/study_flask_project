@@ -1,4 +1,5 @@
 from datetime import timedelta
+import os
 
 class BaseConfig:
     SECRET_KEY = "123456"
@@ -13,8 +14,17 @@ class BaseConfig:
     MAIL_DEFAULT_SENDER = "2639773860@qq.com"
 
     # 设置登录超时时间
-    from datetime import timedelta
     PERMANENT_SESSION_LIFETIME = timedelta(days=7)
+    
+    # 设置上传文件
+    UPLOAD_PATH = (os.path.dirname(os.path.abspath(__file__)) + 
+                   os.path.sep + 'static' + 
+                   os.path.sep + 'uploads')
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+    
+    # 全局禁用CSRF保护
+    WTF_CSRF_ENABLED = False
+
 
 
 class DevelopmentConfig(BaseConfig):

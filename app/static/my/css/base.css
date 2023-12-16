@@ -1,4 +1,7 @@
-
+nav{
+    position: sticky;
+    top: 0;
+}
 
 .left {
     float: left;
@@ -8,6 +11,16 @@
 .right {
     float: right;
     display: inline-block;
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+input::-webkit-input-placeholder {
+    /* placeholder字体大小 */
+    font-size: 20px;
 }
 
 .clearfix::after {
