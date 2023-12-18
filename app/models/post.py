@@ -22,7 +22,7 @@ class PostModel(Base):
     read_count = db.Column(db.Integer, default=0)
     is_active = db.Column(db.Boolean, default=True)
     board_id = db.Column(db.Integer, db.ForeignKey("board.id"))
-    author_id = db.Column(db.String(100), db.ForeignKey("user.id"),
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"),
                           nullable=False)
     board = db.relationship("BoardModel", backref="posts")
     author = db.relationship("UserModel", backref='posts')
@@ -36,7 +36,7 @@ class CommentModel(Base):
     create_time = db.Column(db.DateTime, default=datetime.now)
     is_active = db.Column(db.Boolean, default=True)
     post_id = db.Column(db.Integer, db.ForeignKey("post.id"))
-    author_id = db.Column(db.String(100), db.ForeignKey("user.id"),
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"),
                           nullable=False)
     post = db.relationship("PostModel", backref='comments')
     author = db.relationship("UserModel", backref='comments')

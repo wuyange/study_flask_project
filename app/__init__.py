@@ -3,11 +3,12 @@ from . import config
 from .exts import init_exts
 from .web import register_blueprint
 from .cli import register_cli
+from .hooks import register_hooks
 
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(config.DevelopmentConfig)
+    app.config.from_object(config.TestingConfig)
 
     # 注册蓝图
     register_blueprint(app)
@@ -17,6 +18,7 @@ def create_app():
 
     # 注册命令行
     register_cli(app)
-    return app
 
-from .models import user
+    # 注册钩子函数
+    register_hooks(app)
+    return app

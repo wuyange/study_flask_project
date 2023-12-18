@@ -42,3 +42,23 @@ editor.getConfig().MENU_CONF['uploadImage'] = {
         console.log(`${file.name} 上传成功`, res)
     },
 }
+
+$(function (){
+  // 提交按钮单击事件
+  $("#add_post").click(function (event) {
+      var title = $("input[name='title']").val();
+      var board_id = $("select[name='board_id']").val();
+      var content = editor.getText();
+      $.ajax({
+          type: 'POST',
+          url: '/front/add_post',
+          data: {title,board_id,content},
+          success: function(response) {
+              location.assign("/front/index");
+          },
+          error: function(error) {
+                   alert(error.responseText);//错误信息
+             }
+        });
+  });
+});

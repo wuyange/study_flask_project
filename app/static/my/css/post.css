@@ -16,6 +16,7 @@
     height: 36px;
     border-radius: 12px;
     margin: 3px 0;
+    font-size: 20px;
 }
 
 .content select {
@@ -41,7 +42,7 @@
     height: 480px; 
 }
 
-.content button[name="submit"]{
+.content button[type="button"][id="add_post"]{
     width: 120px;
     height: 38px;
     background-color: rgb(253,126,20);
