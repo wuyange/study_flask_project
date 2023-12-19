@@ -8,7 +8,7 @@ from .hooks import register_hooks
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(config.TestingConfig)
+    app.config.from_object(config.DevelopmentConfig)
 
     # 注册蓝图
     register_blueprint(app)
