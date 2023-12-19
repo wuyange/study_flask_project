@@ -15,14 +15,14 @@
                         <div class="post_comment">{{ post.comments|length }}</div>
                         <div class="post_read_count">{{ post.read_count }}</div>
                     </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
         <div class="content_right">
             <button>发布帖子</button>
             <div class="filter">
                 {% for id, name in boards %}
-                    {% if name == current_board %}
+                    {% if id == current_board %}
                         <button class="filter selected" value="{{ id }}">{{ name }}</button>
                     {% else %}
                         <button class="filter" value="{{ id }}">{{ name }}</button>

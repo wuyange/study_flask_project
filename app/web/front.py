@@ -10,7 +10,17 @@ front = Blueprint("front", __name__, url_prefix="/front")
 
 @front.route('/index')
 def index():
-    return 'index'
+    boards = [(board.id,board.name) for board in BoardModel.query.all()]
+    boards.append((-1, '所有板块'))
+    current_board = request.args.get('board', -1)
+    posts = PostModel.query.all()
+    data = {
+        "posts": posts,
+        "boards": boards,
+        "current_board": current_board
+    }
+    print(data)
+    return render_template('my/index.html', **data)
 
 @front.route('/add_post', methods=["post", 'get'])
 @login_required
