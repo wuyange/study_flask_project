@@ -1,7 +1,10 @@
 from .models.user import PermissionModel, RoleModel, PermissionEnum, UserModel
 from .models.post import *
-import click
 from .exts import db
+
+from faker import Faker
+import random
+import click
 
 def create_permission():
     click.echo('-------')
@@ -45,9 +48,26 @@ def create_board():
             db.session.add(board)
     click.echo("板块添加成功！")
 
+@click.option('--num', '-n')
+def create_test_post(num):
+    fake = Faker(locale="zh_CN")
+    author = UserModel.query.first()
+    boards = BoardModel.query.all()
+    click.echo("开始生成测试帖子...")
+    with db.auto_commit():
+        for _ in range(int(num)):
+            title = fake.sentence()
+            content = fake.paragraph(nb_sentences=10)
+            random_index = random.randint(0,3)
+            board = boards[random_index]
+            post = PostModel(title=title, content=content, board=board, author=author)
+            db.session.add(post)
+    click.echo("测试帖子生成成功！")
+
 def register_cli(app):
 
     app.cli.command("create-role")(create_role)
     app.cli.command("create-permission")(create_permission)
     app.cli.command("create-administrator")(create_administrator)
     app.cli.command("create-board")(create_board)
+    app.cli.command("create-test-post")(create_test_post)
