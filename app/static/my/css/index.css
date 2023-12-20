@@ -1,0 +1,48 @@
+.content .content_left{
+    width: 85%;
+    display: inline-block;
+    float: left;
+    background-color: #b3b7bb;
+}
+
+.content .content_right{
+    width: 15%;
+    float: right;
+    display: inline-block;
+    background-color: #ffdf7e;
+    text-align: right;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.content .content_right button{
+    display: block;
+    width: 90%;
+    height: 60px;
+    background-color: #ffdf7e;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.selected{
+    background-color: #fd7e14 !important;
+}
+
+.release{
+    background-color: #b3b7bb !important;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+	color: #000;
+}
+
+.post_info div{
+    display: inline-block;
+    width: 15%;
+}

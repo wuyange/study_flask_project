@@ -59,33 +59,3 @@ input::-webkit-input-placeholder {
 body {
     background-color: #ffeeba;
 }
-/*    </style>*/
-/*</head>*/
-/*<body>*/
-/*    <div class="navbar">*/
-/*        <div>*/
-/*            <a href="#">Python 论坛</a>*/
-/*            <a href="#">首页</a>*/
-/*        </div>*/
-/*        <div>*/
-/*            <input type="text" placeholder="搜索">*/
-/*            <a href="#">登录</a>*/
-/*            <a href="#">注册</a>*/
-/*        </div>*/
-/*    </div>*/
-/*    <div class="register-form">*/
-/*        <input type="email" placeholder="邮箱">*/
-/*        <input type="text" placeholder="验证码">*/
-/*        <input type="text" placeholder="用户名">*/
-/*        <input type="password" placeholder="密码">*/
-/*        <input type="password" placeholder="确认密码">*/
-/*        <button onclick="register()">注册</button>*/
-/*    </div>*/
-/*    <script>*/
-/*        function register() {*/
-/*            // 这里可以添加注册的逻辑*/
-/*            alert('注册');*/
-/*        }*/
-/*    </script>*/
-/*</body>*/
-/*</html>*/

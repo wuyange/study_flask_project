@@ -10,8 +10,7 @@ front = Blueprint("front", __name__, url_prefix="/front")
 
 @front.route('/index')
 def index():
-    boards = [(board.id,board.name) for board in BoardModel.query.all()]
-    boards.append((-1, '所有板块'))
+    boards = [(-1, '所有板块')] + [(board.id,board.name) for board in BoardModel.query.all()]
     current_board = request.args.get('board', -1)
     posts = PostModel.query.all()
     data = {
