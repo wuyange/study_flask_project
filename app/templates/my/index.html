@@ -6,7 +6,7 @@
 {% block content %}
     <div class="content clearfix">
         <div class="content_left">
-            {% for post in posts%}
+            {% for post in paginate.items%}
                 <a class="post" href="#">
                     <div class="post_title">{{ post.title }}</div>
                     <div class="post_info">
@@ -19,17 +19,37 @@
             {% endfor %}
         </div>
         <div class="content_right">
-            <a href="#"><button class="release">发布帖子</button></a>
+            <a href="{{ url_for('front.add_post') }}"><button class="release">发布帖子</button></a>
             <div class="filter">
                 {% for id, name in boards %}
-                    {% if id == current_board %}
-                        <a href="#"><button class="filter selected" value="{{ id }}">{{ name }}</button></a>
+                    {% if id == current_board|int %}
+                        <a href="{{ url_for('front.index', board=id) }}"><button class="filter selected" value="{{ id }}">{{ name }}</button></a>
                     {% else %}
-                        <a href="#"><button class="filter" value="{{ id }}">{{ name }}</button></a>
+                        <a href="{{ url_for('front.index', board=id) }}"><button class="filter" value="{{ id }}">{{ name }}</button></a>
                     {% endif %}
                 {% endfor %}
             </div>
         </div>
+    </div>
+
+    <div class="footer pagination">
+    {% if paginate %}
+        {% if paginate.has_prev %}
+            <a href="{{ url_for('front.index', page=paginate.prev_num, board=request.args.get('board', -1)) }}">&lt;&lt;</a>
+        {% endif %}
+
+        {% for i in range(paginate.pages) %}
+            {% if loop.index == paginate.page %}
+                <a class="selected" href="{{ url_for('front.index', page=loop.index, board_id=request.args.get('board', -1)) }}">{{ loop.index }}</a>
+            {% else %}
+                <a href="{{ url_for('front.index', page=loop.index, board=request.args.get('board', -1)) }}">{{ loop.index }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if paginate.has_next %}
+            <a href="{{ url_for('front.index', page=paginate.next_num, board=request.args.get('board', -1)) }}">&gt;&gt;</a>
+        {% endif %}
+    {% endif %}
     </div>
 
 {% endblock %}

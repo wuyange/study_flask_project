@@ -25,6 +25,9 @@ class BaseConfig:
     # 全局禁用CSRF保护
     WTF_CSRF_ENABLED = False
 
+    # 每页的文章数量
+    PER_PAGE_COUNT = 10
+
 
 
 class DevelopmentConfig(BaseConfig):

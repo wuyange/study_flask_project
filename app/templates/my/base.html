@@ -10,16 +10,18 @@
     <nav class="navbar clearfix">
         <div class="left">
             <a href="#">python论坛</a>
-            <a href="#">首页</a>
+            <a href="{{ url_for('front.index') }}">首页</a>
         </div>
         <div class="right">
             <div class="left">
-                <input type="text">
-                <span>搜索</span>
+                <form action="{{ url_for('front.index', broad=request.args.get('broad',-1)) }}" method="get">
+                    <input type="text" name="keyword">
+                    <button type="submit">搜索</button>
+                </form>
             </div>
             <div class="right">
-                <a>登录</a>
-                <a>注册</a>
+                <a href="{{ url_for('user.login') }}">登录</a>
+                <a href="{{ url_for('user.register') }}">注册</a>
             </div>
         </div>
     </nav>

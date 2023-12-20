@@ -50,6 +50,14 @@ input::-webkit-input-placeholder {
     width: 300px;
     vertical-align: middle;
     border-radius: 15px;
+    font-size: 32px;
+}
+
+.navbar button{
+    /*margin-top: 10px;*/
+    /*height: 40px;*/
+    line-height: 40px;
+    font-size: 36px;
 }
 
 .navbar div div{

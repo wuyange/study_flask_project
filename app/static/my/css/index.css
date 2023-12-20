@@ -11,6 +11,10 @@
     display: inline-block;
     background-color: #ffdf7e;
     text-align: right;
+    position: fixed;
+    z-index: 1;
+    top: 95px;
+    right: 0px;
 }
 
 .clearfix::after {
@@ -62,4 +66,12 @@ div.content_left > a.post{
 div.content_left > a.post > div{
     margin: 0 10px;
     padding: 10px 0;
+}
+
+div.pagination a{
+    display: inline-block;
+    font-size: 32px;
+    background-color: #0c5460;
+    width: 80px;
+    text-align: center;
 }
