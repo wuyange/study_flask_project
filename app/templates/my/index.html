@@ -10,10 +10,10 @@
                 <a class="post" href="#">
                     <div class="post_title">{{ post.title }}</div>
                     <div class="post_info">
-                        <div class="post_author">作者：{{ post.authors }}</div>
-                        <div class="post_release_time">发布时间：{{ post.create_time }}</div>
-                        <div class="post_comment">评论数量：{{ post.comments|length }}</div>
-                        <div class="post_read_count">浏览量：{{ post.read_count }}</div>
+                        <span class="post_author">作者：{{ post.author.username }}</span>
+                        <span class="post_release_time">发布时间：{{ post.create_time }}</span>
+                        <span class="post_comment">评论数量：{{ post.comments|length }}</span>
+                        <span class="post_read_count">浏览量：{{ post.read_count }}</span>
                     </div>
                 </a>
             {% endfor %}
