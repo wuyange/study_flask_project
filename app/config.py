@@ -45,6 +45,7 @@ class TestingConfig(BaseConfig):
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_HOST = "127.0.0.1"
     CACHE_REDIS_PORT = 6379
+    CACHE_REDIS_PASSWORD = 123456
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234567890..asd@127.0.0.1:3306/flask?charset=utf8mb4"
 
 

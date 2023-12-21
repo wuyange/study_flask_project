@@ -24,8 +24,6 @@ class PostModel(Base):
     board_id = db.Column(db.Integer, db.ForeignKey("board.id"))
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"),
                           nullable=False)
-    parent_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
-    parent = db.relationship('CommentModel',backref='children',remote_side=[id])
     board = db.relationship("BoardModel", backref="posts")
     author = db.relationship("UserModel", backref='posts')
 
@@ -40,5 +38,7 @@ class CommentModel(Base):
     post_id = db.Column(db.Integer, db.ForeignKey("post.id"))
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"),
                           nullable=False)
+    parent_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
+    parent = db.relationship('CommentModel', backref='children', remote_side=[id])
     post = db.relationship("PostModel", backref='comments')
     author = db.relationship("UserModel", backref='comments')

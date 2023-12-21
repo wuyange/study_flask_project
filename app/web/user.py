@@ -24,7 +24,7 @@ def send_verification_code():
     code = [randint(0,9) for _ in range(4)]
     code = "".join(map(str, code))
     mail.send_verification_code(request.form['email'], code)
-    redis.set(request.form['email'], code, timeout=60)
+    redis.set(request.form['email'], code, timeout=120)
     return make_response(), 200
 
 @user.route('/login', methods=['get', 'post'])

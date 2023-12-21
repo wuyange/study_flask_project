@@ -49,7 +49,7 @@ def create_board():
     click.echo("板块添加成功！")
 
 @click.option('--num', '-n')
-def create_test_post(num):
+def create_test_post(num=1):
     fake = Faker(locale="zh_CN")
     author = UserModel.query.first()
     boards = BoardModel.query.all()
