@@ -85,4 +85,13 @@ def upload_image():
         "errno": 1, 
         "message": [error for error in form.errors]
     })
+
+@front.route('/post/<int:post_id>', methods=['get'])
+def post_detail(post_id):
+    post = PostModel.query.filter(PostModel.id == post_id).first_or_404()
+    if post:
+        # 增加阅读量
+        with db.auto_commit():
+            post.read_count += 1
+    return render_template('my/post_detail.html', post=post)
     

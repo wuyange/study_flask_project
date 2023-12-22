@@ -7,7 +7,7 @@
     <div class="content clearfix">
         <div class="content_left">
             {% for post in paginate.items%}
-                <a class="post" href="#">
+                <a class="post" href="{{ url_for('front.post_detail', post_id=post.id) }}">
                     <div class="post_title">{{ post.title }}</div>
                     <div class="post_info">
                         <span class="post_author">作者：{{ post.author.username }}</span>
