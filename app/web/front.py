@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, request, jsonify, current_app, url_for, g
+from flask import Blueprint, render_template, request, jsonify, current_app, url_for, g, redirect
 from sqlalchemy import or_
 import os
 
-from app.models.post import BoardModel, db, PostModel
-from app.forms.post import PostForm, ImageForm
+from app.models.post import BoardModel, db, PostModel, CommentModel
+from app.forms.post import PostForm, ImageForm, CommentForm
 from app.utils import random_file_name
 from app.decorators import login_required
 
@@ -85,4 +85,26 @@ def upload_image():
         "errno": 1, 
         "message": [error for error in form.errors]
     })
-    
+
+@front.route('/post/<int:post_id>', methods=['get'])
+def post_detail(post_id):
+    post = PostModel.query.filter(PostModel.id == post_id).first_or_404()
+    # 增加阅读量
+    with db.auto_commit():
+        post.read_count += 1
+    # 返回评论
+    comments = CommentModel.query.filter(CommentModel.post_id==post_id).order_by(CommentModel.create_time.desc()).all()
+    return render_template('my/post_detail.html', post=post, comments=comments)
+
+@front.post('/add_comment/<int:post_id>')
+@login_required
+def add_comment(post_id):
+    form = CommentForm(request.form)
+    flag = PostModel.query.get_or_404(post_id)
+    if form.validate_on_submit():
+        with db.auto_commit():
+            user_id = g.get('user').id
+            comment = CommentModel(content=form.content.data, post_id=post_id,
+                                   author_id=user_id)
+            db.session.add(comment)
+    return redirect(url_for('front.post_detail', post_id=post_id))

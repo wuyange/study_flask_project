@@ -1,0 +1,42 @@
+div.content h2{
+    font-size: 36px;
+    text-align: center;
+}
+
+div.content p span{
+    font-size: 28px;
+    color: #5a6268;
+    margin-right: 40px;
+}
+
+div.content article{
+    font-size: 24px;
+}
+
+div.content div.post-container, div.content .comment{
+    margin: 1px auto;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+div.content form.comment textarea{
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+div.content form.comment button{
+    width: 160px;
+    height: 40px;
+    font-size: 24px;
+}
+
+div.history {
+    margin: 10px auto;
+    font-size: 16px;
+    color: #1c7430;
+}
+
+div.comment{
+    border: 2px #1c7430 ridge;
+}

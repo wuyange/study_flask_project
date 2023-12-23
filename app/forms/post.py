@@ -18,3 +18,7 @@ class PostForm(BaseForm):
 class ImageForm(BaseForm):
     image = FileField('image', validators=[FileRequired('上传文件不得为空'),
                                            FileAllowed(['png', 'jpg', 'svg'], '只允许上传PNG、JPG和SVG格式的图片')])
+
+class CommentForm(BaseForm):
+    content = StringField('content', validators=[DataRequired('请输入内容'),
+                                                 Length(max=3000, message='评论内容应该小于等于3000')])
