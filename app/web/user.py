@@ -55,17 +55,22 @@ def personal_center(user_uid):
         avatar = form.avatar.data
         username = form.username.data
         signature = form.signature.data
-        
-        if avatar:
-            filename = random_file_name(avatar.filename)
-            file_path = os.path.join(current_app.config['UPLOAD_PATH'], 'avatar', filename)
-            avatar.save(file_path)
-            avatar = os.path.join('avatar', filename)
-        
+
         with db.auto_commit():
-            g.user.username = username
-            g.user.signature = signature
-            g.user.avatar = avatar
+
+            if g.user.username != username:
+                g.user.username = username
+
+            if avatar:
+                filename = random_file_name(avatar.filename)
+                file_path = os.path.join(current_app.config['UPLOAD_PATH'], 'avatar', filename)
+                avatar.save(file_path)
+                avatar = 'uploads/'+'avatar/'+filename
+                g.user.avatar = avatar
+
+            if signature:
+                g.user.signature = signature
+
         return redirect(url_for('user.personal_center', user_uid=user_uid))   
     user = UserModel.query.filter(UserModel.uid==user_uid).first_or_404()
     flag = False

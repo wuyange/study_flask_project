@@ -35,3 +35,7 @@ div.content form button{
     display: block;
     margin: 10px auto;
 }
+
+div.content form img{
+    width: 200px;
+}
