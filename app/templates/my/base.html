@@ -20,8 +20,13 @@
                 </form>
             </div>
             <div class="right">
-                <a href="{{ url_for('user.login') }}">登录</a>
-                <a href="{{ url_for('user.register') }}">注册</a>
+                {% if g.user %}
+                    <a href="{{ url_for('user.personal_center', user_uid=g.user.uid)}}">{{ g.user.username}}</a>
+                    <a href="{{ url_for('user.logout') }}">退出登录</a>
+                {% else %}
+                    <a href="{{ url_for('user.login') }}">登录</a>
+                    <a href="{{ url_for('user.register') }}">注册</a>
+                {% endif %}
             </div>
         </div>
     </nav>

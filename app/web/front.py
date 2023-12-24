@@ -14,7 +14,6 @@ def index():
     boards = [(-1, '所有板块')] + [(board.id,board.name) for board in BoardModel.query.all()]
 
     # 接受get请求参数
-    print(request.args)
     current_board = int(request.args.get('board', -1))
     page = int(request.args.get('page', 1))
     keyword = request.args.get('keyword', None)
@@ -40,7 +39,6 @@ def index():
         "current_board": current_board,
         "paginate": paginate
     }
-    print(data)
     return render_template('my/index.html', **data)
 
 @front.route('/add_post', methods=["post", 'get'])

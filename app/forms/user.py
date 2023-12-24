@@ -1,6 +1,8 @@
 from . import BaseForm
-from wtforms import ValidationError, SubmitField, StringField, PasswordField, IntegerField, BooleanField
+from wtforms import ValidationError, SubmitField, StringField, PasswordField, FileField, BooleanField
 from wtforms.validators import Email, EqualTo, Length, Regexp, DataRequired
+from flask_wtf.file import FileRequired, FileAllowed
+
 from app.models.user import UserModel
 from app.utils import redis
 
@@ -55,3 +57,10 @@ class UserLoginForms(BaseForm):
             return False
 
         return True
+    
+class EditUserFrom(BaseForm):
+    username = StringField('user_name', validators=[DataRequired('用户名不得为空'),
+                                                     Regexp(r'^[a-zA-Z0-9_]+$', message='用户名只能为数字、字母和下划线'),
+                                                     Length(min=2, max=20, message='用户名长度为2-20')])
+    signature = StringField('signature', validators=[Length(max=100, message='个性签名长度不能超过100个字符')])
+    avatar = FileField('avatar', validators=[FileAllowed(['jpg', 'png', 'svg'], message='只允许上传PNG、JPG和SVG格式的图片')])

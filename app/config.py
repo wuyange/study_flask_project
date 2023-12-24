@@ -27,6 +27,9 @@ class BaseConfig:
 
     # 每页的文章数量
     PER_PAGE_COUNT = 10
+    
+    # 头像设置
+    AVATARS_SAVE_PATH = os.path.join(UPLOAD_PATH,"avatars")
 
 
 

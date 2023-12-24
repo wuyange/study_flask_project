@@ -9,7 +9,7 @@
           <h2>{{ post.title }}</h2>
           <p class="post-info-group">
             <span>发表时间：{{ post.create_time }}</span>
-            <span>作者：{{ post.author.username }}</span>
+            <a href="{{ url_for('user.personal_center', user_uid=post.author.uid) }}"><span>作者：{{ post.author.username }}</span></a>
             <span>所属板块：{{ post.board.name }}</span>
             <span>阅读数：{{ post.read_count }}</span>
             <span>评论数：{{ post.comments|length }}</span>
@@ -35,7 +35,3 @@
         </form>
     </div>
 {% endblock %}
-
-{% block footer %}
-    <script src="{{ url_for('static', filename='my/js/post_detail.js') }}"></script>
-{% endblock %} 
